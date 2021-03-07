@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Clock
 {
@@ -98,5 +99,22 @@ namespace Clock
             data += year;
             label1.Text = data;
         }
-    }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
+        }
+
+        private void минутToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("shutdown", "/s /t 1800");
+
+        }
+
+        private void сейчасToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("shutdown", "/r /t 0");
+        }
+
+    }  
 }
